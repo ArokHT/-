@@ -1,0 +1,61 @@
+#include<iostream>
+#include<string>
+#include<cstring>
+using namespace std;
+int main()
+{
+	int i, j, len1, len2, flag=0;
+	char s1[100], s2[100];
+	cin >> s1 >> s2;
+	len1=strlen(s1);
+	len2=strlen(s2);
+	if(s1[len1-1]==s2[len2-1] && len1<=len2)
+	{
+		for(i=len1-1, j=len2-1; i>=0; i--, j--)
+		{
+			if(s1[i]==s2[j])
+			{
+				flag++;
+			}
+			else
+			if(s1[i]!=s2[j]) 
+			{
+				break;
+			}
+		}
+		for(i=len1-flag; i<=len1-1; i++)
+		{
+			cout << s1[i];
+		}
+		cout << endl;
+	}
+	if(s1[len1-1]==s2[len2-1] && len1>len2)
+	{
+		for(i=len1-1, j=len2-1; j>=0; i--, j--)
+		{
+			if(s1[i]==s2[j])
+			{
+				flag++;
+			}
+			else
+			if(s1[i]!=s2[j])  
+			{
+				break;
+			}
+		}
+		for(j=len2-flag; j<=len2-1; j++)
+		{
+			cout << s2[j];
+		}
+		cout << endl;
+	}
+	if(s1[len1-1]!=s2[len2-1])
+	{
+		cout << "null" << endl;
+	}
+	//cout << s1[2] << endl;
+	//cout << len1 << endl;
+	//cout << len2 << endl;
+	//cout << flag << endl;
+	return 0;
+}
